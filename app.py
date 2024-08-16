@@ -53,7 +53,7 @@ class Medical_chatbot():
                     print(f"Error parsing {file_path}: {e}")
 
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=60)
-    documents=text_splitter.create_documents([total_info[0:6500]])
+    documents=text_splitter.create_documents([total_info])
     palm_embeddings=GooglePalmEmbeddings()
 
     vector = FAISS.from_documents(documents, palm_embeddings)
